@@ -121,7 +121,7 @@ if __name__ == '__main__':
     Linklist = linklist()
     Linklist.Initiallist([1,2,3,4,5,67,8])
     print "链表长度：",Linklist.Lengthlist()
-    print "链表的第一个元素:",Linklist.GetElemlist(6)
+    print "链表的第一个元素:",Linklist.GetElemlist(0)
     print "插入元素后的数组"
     Linklist.Insertlist(5,7)
     print "第1次——打印链表："
