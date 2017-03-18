@@ -1,0 +1,60 @@
+# -*- coding:utf-8 -*-
+class CircularQueue():
+    def __init__(self,size):
+        self.front = 0     # 队头
+        self.rear  = 0     # 队尾
+        self.size = size
+        self.content = ['']*self.size
+        self.count = 0
+
+    def IsQueueEmpty(self):
+        return self.count == 0
+
+    def IsQueueFull(self):
+        return self.count == self.size
+
+    def AppendCircularQueue(self,data):
+
+        if  self.count < 5:
+            position_tail = self.rear % self.size
+            self.content[position_tail] = data
+            self.rear = self.rear + 1
+            self.count = self.count + 1
+        else:
+            print "The Queue Is Full!"
+
+
+
+    def ExitCircularQueue(self):
+        if self.count > 0:
+            position_head = self.front % self.size
+            value = self.content[position_head]
+            self.content[position_head] = ''
+            self.front = self.front + 1
+            self.count = self.count - 1
+            return value
+        else:
+            print "The Queue Is Empty!"
+
+
+    def PrintCircularQueue(self):
+        return self.content
+
+if __name__ == '__main__':
+    '''创建一个实例'''
+    circularqueue = CircularQueue(5)
+    '''入队'''
+    for i in range(0,5):
+        circularqueue.AppendCircularQueue(i)
+    print circularqueue.PrintCircularQueue()
+    '''出队'''
+    circularqueue.ExitCircularQueue()
+
+    circularqueue.AppendCircularQueue(1)
+    print circularqueue.PrintCircularQueue()
+    circularqueue.ExitCircularQueue()
+    print circularqueue.PrintCircularQueue()
+
+
+
+
